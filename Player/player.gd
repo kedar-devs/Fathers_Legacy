@@ -6,9 +6,9 @@ enum{
 }
 var state=MOVE
 var velocity=Vector2.ZERO
-const friction=400
-const Acceleration=250
-const MAX_SPEED=80
+export var friction=400
+export var Acceleration=250
+export var MAX_SPEED=80
 var roll_vector=Vector2.UP
 onready var animationPlayer=$AnimationPlayer
 onready var animationTree=$AnimationTree

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Bat.png" type="Texture" id=2]
 [ext_resource path="res://hit_and_hurt/HurtBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/bat.gd" type="Script" id=4]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -46,12 +47,14 @@ radius = 8.0
 height = 0.0
 
 [node name="bat" type="KinematicBody2D"]
+position = Vector2( -1, 0 )
 collision_layer = 16
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "fly"
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -69,6 +72,8 @@ collision_layer = 2147483656
 position = Vector2( 0, -16 )
 scale = Vector2( 1, 1.25 )
 shape = SubResource( 8 )
+
+[node name="Stats" parent="." instance=ExtResource( 5 )]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HurtBox"]
